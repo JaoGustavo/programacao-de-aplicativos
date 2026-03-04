@@ -1,5 +1,5 @@
 valor = float(input("digite o valor da compra"))
-prime = input("voce é assinatne prime? (s/n)")
+prime = input("voce é assinante prime? (s/n)")
 
 if valor >= 500.00  or prime == "s"and valor <100:
     frete = 0
