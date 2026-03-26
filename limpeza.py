@@ -3,4 +3,4 @@ usuarios.remove ("teste")
 del usuarios [0]
 
 print ("lista final", usuarios)
-primt ("usuarios na posiçao 0:", usuarios[0])
+print ("usuarios na posiçao 0:", usuarios[0])
