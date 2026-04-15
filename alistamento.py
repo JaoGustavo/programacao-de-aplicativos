@@ -1,6 +1,6 @@
-nomes = ["Ana", "Bruno", "Caio"]
-nomes.append("Daniel")
-nomes.insert (0, "Zuleica ")
+alistamento = ["Ana", "Bruno", "Caio"]
+alistamento.append ("Daniel")
+alistamento.insert(0, "Zuleica")
 
-print ("alistamento:", nomes)
-print("quantidade de nomes", len(nomes))
+print("alistamento", alistamento)
+print("quantidades de nomes", len(alistamento))
