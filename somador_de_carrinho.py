@@ -2,7 +2,7 @@ def somar_carrinho(precos):
     total = 0
     for preco in precos:
         total += preco
-    
+        
     if total > 500:
         total *= 0.90
     return total
