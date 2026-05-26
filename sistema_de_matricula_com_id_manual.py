@@ -1,8 +1,9 @@
 import json 
 import os 
- DADOS_BANCO = "escola.json"
 
-def cadastro():
+DADOS_BANCO = "escola.json"
+
+def cadastrar():
     if os.path.exists(DADOS_BANCO): 
         with open(DADOS_BANCO, 'r', encoding='utf-8') as f: 
             escola = json.load(f)
@@ -24,18 +25,4 @@ def cadastro():
         
     print("ID salvo com sucesso!") 
 
-def listar():
-    print("\n--- Lista dos ID ---") 
-    
-    if os.path.exists(DADOS_BANCO):
-        with open(DADOS_BANCO, 'r', encoding='utf-8') as f:
-            dados = json.load(f)
-    else:
-        i = []
-
-    if not dados:
-        print("Nenhum ID cadastrado.")
-        return
-
-    for aluno in dados:
-        print(f" ID: {aluno['id']} | Nome: {aluno['nome']} | Telefone: {aluno['telefone']} | Turma: {aluno['turma']} | Idade: {aluno['idade']} | cpf: {aluno['CPF']}")
+cadastrar()
