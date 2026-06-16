@@ -72,11 +72,6 @@ def remover():
 
 
 
-
-
-
-
-
 opcao_while = 0
 while True:
     print("1 - CADASTRAR ALUNO\n2 - LISTAR ALUNOS\n3 - BUSCAR ALUNO\n4 - ATUALIZAR DADOS\n5 - EXCLUIR CADASTRO\n6 - FECHAR PROGRAMA ")
