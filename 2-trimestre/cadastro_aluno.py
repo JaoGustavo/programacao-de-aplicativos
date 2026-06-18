@@ -8,6 +8,7 @@ def cadastrar_aluno():
     turma_aluno = input("Digite a Turma: ")
     idade_aluno = int(input("Digite a idade: "))
     cpf_aluno = input("Digite o cpf: ")
+    id_professor_aluno = int(input("Digite o ID do Professor: "))
 
     cursor.execute('''
                 CREATE TABLE IF NOT EXISTS alunos(
@@ -16,9 +17,13 @@ def cadastrar_aluno():
                 telefone TEXT, 
                 turma TEXT, 
                 idade INTEGER,
-                cpf TEXT UNIQUE NOT NULL)''')
+                cpf TEXT UNIQUE NOT NULL,
+              id_professor INTEGER,
+                FOREIGN KEY (id_professor) REFERENCES professores(id)
+                )''')
+
     comando_inserir = f'''
-        INSERT INTO alunos(nome, telefone, turma, idade, cpf)
+        INSERT INTO alunos(nome, telefone, turma, idade, cpf, id_professor)
         VALUES('{nome_completo_aluno}', '{telefone_aluno}', '{turma_aluno}', '{idade_aluno}', '{cpf_aluno}')'''
 
     cursor.execute(comando_inserir)
