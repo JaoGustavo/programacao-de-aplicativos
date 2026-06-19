@@ -8,6 +8,9 @@ def cadastrar_aluno():
     turma_aluno = input("Digite a Turma: ")
     idade_aluno = int(input("Digite a idade: "))
     cpf_aluno = input("Digite o cpf: ")
+    endereco_aluno = input("Digite o endereço: ")
+    cidade_aluno = input("Digite a cidade: ")
+    estado_aluno = input("Digite o estado: ")
     id_professor_aluno = int(input("Digite o ID do Professor: "))
 
     cursor.execute('''
@@ -17,14 +20,19 @@ def cadastrar_aluno():
                 telefone TEXT, 
                 turma TEXT, 
                 idade INTEGER,
-                cpf TEXT UNIQUE NOT NULL,
-              id_professor INTEGER,
+                cpf TEXT UNIQUE NOT NULL,S
+                endereco TEXT,
+                cidade TEXT,
+                estado TEXT,
+                id_professor INTEGER,
                 FOREIGN KEY (id_professor) REFERENCES professores(id)
                 )''')
 
+
+
     comando_inserir = f'''
-        INSERT INTO alunos(nome, telefone, turma, idade, cpf, id_professor)
-        VALUES('{nome_completo_aluno}', '{telefone_aluno}', '{turma_aluno}', '{idade_aluno}', '{cpf_aluno}')'''
+        INSERT INTO alunos(nome, telefone, turma, idade, cpf, endereco, cidade, estado, id_professor )
+        VALUES('{nome_completo_aluno}', '{telefone_aluno}', '{turma_aluno}', '{idade_aluno}', '{cpf_aluno}', '{endereco_aluno}', '{cidade_aluno}', '{estado_aluno}', '{id_professor_aluno}' )'''
 
     cursor.execute(comando_inserir)
     conexao.commit()
@@ -55,6 +63,9 @@ def atualizar():
     nova_turma = input("Digite a nova turma: ")
     nova_idade = input("Digite a nova idade: ")
     novo_cpf = input("Digite o novo CPF: ")
+    novo_endereco = input("Digite o novo endereço: ")
+    nova_cidade = input("Digite a nova cidade: ")
+    novo_estado = input("Digite o novo estado: ")
 
     cursor.execute(f'''
                    UPDATE alunos

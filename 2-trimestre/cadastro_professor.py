@@ -11,6 +11,7 @@ def cadastrar_professor():
     cpf = input("Digite o cpf: ")
     salario = (input("Digite seu salario: "))
     escola = (input("Digite o nome da escola: "))
+    endereco = input("Digite o endereço: ")
 
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS alunos(
@@ -21,12 +22,13 @@ def cadastrar_professor():
         idade INTEGER,
         cpf TEXT UNIQUE NOT NULL,
         salario TEXT NOT NULL,
-        escola TEXT
+        escola TEXT,
+        endereco
     )
     ''')
     comando_inserir = f'''
-        INSERT INTO alunos(nome, telefone, turma, idade, cpf, salario, escola)
-        VALUES('{nome_completo}', '{telefone_professor}', '{materia}', '{idade_professor}', '{cpf}', '{salario}', '{escola}')'''
+        INSERT INTO alunos(nome, telefone, turma, idade, cpf, salario, escola, endereco)
+        VALUES('{nome_completo}', '{telefone_professor}', '{materia}', '{idade_professor}', '{cpf}', '{salario}', '{escola}', '{endereco}')'''
 
     cursor.execute(comando_inserir)
     conexao.commit()
@@ -50,10 +52,11 @@ def atualizar():
     novo_cpf = input("Digite o novo CPF: ")
     novo_salario = (input("Digite seu salario: "))
     nova_escola = (input("Digite o nome da escola: "))
+    novo_endereco = input("Digite o novo endereço: ") 
 
     cursor.execute('''
                    UPDATE alunos
-                   SET nome = ?, telefone = ?, turma = ?, idade = ?, cpf = ?, salario = ?, escola = ? WHERE id = ?''', (novo_nome, novo_telefone, nova_materia, nova_idade, novo_cpf, novo_salario, nova_escola, id_professor))
+                   SET nome = ?, telefone = ?, turma = ?, idade = ?, cpf = ?, salario = ?, escola = ?, endereco = ?, WHERE id = ?''', (novo_nome, novo_telefone, nova_materia, nova_idade, novo_cpf, novo_salario, nova_escola, novo_endereco. id_professor))
     conexao.commit()
     print("Dados atualizados com sucesso! ")
 
