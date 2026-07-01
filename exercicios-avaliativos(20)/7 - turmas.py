@@ -4,9 +4,8 @@ def cadastrar_turma(nome, id_serie, id_prof):
     cursor = conexao.cursor()
     cursor.execute("PRAGMA foreign_keys = ON;")
 
-    #se o id_prof nao existir, ocorre um IbtergityError.
-    #como restringir isso direto na estrutura da tabela abaixo?
-    
+
+
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS professores (
             id INTERGER PRIMARY LEY AUTOINCREMENT,
@@ -15,3 +14,17 @@ def cadastrar_turma(nome, id_serie, id_prof):
             )
         ''')
     
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS turmas (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT NOT NULL,
+        id_serie INTEGER,
+        id_prof INTEGER,
+        FOREIGN KEY (id_prof) REFERENCES professores(id)
+    )
+    ''')
+    
+    conexao.commit()
+    conexao.close()
+
+# Precisa adicionar uma tabela para os professores
