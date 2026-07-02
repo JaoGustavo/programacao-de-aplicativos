@@ -23,4 +23,4 @@ def criar_tabelas():
     conexao.commit()
     conexao.close()
 
-# estava dando erro porque estava puxando uma referencia de umna tabela que nao existe.
+# Estava dando erro porque estava puxando uma referencia de umna tabela que nao existe.

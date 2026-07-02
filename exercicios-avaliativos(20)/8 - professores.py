@@ -12,4 +12,4 @@ def cadastrar_professor(nome, cpf):
                  )
                  ''')
     
-# O erro era por que o cpf não estava "UNIQUE" e ele so pode ser unico.
+# O erro era por que o cpf nao estava "UNIQUE" e ele so pode ser unico.
