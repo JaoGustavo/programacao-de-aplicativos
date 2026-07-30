@@ -20,6 +20,3 @@ def vincular_aluno_turma():
         import sqlite3
 
 #  A conversão int() gera um ValueError se o usuario digitar texto.
-
-
-

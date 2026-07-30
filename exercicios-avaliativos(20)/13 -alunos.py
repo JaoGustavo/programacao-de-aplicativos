@@ -13,4 +13,4 @@ def verificar_registros():
 
     conexao.close()
 
-# O fetchall() só consegue pegar os dados uma vez. Depois disso, o cursor fica vazio.
+# O '.fetchall()' só consegue pegar os dados uma vez. Depois disso, o cursor fica vazio.
