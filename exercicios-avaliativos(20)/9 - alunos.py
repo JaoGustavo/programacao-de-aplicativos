@@ -10,4 +10,4 @@ def atualizar_nome_aluno(id_aluno, novo_nome):
     conexao.commit()
     conexao.close()
 
-# Faltou usar o ""WHERE" no "UPDATE", entao o sistema mudou o nome de todos os alunos, e nao so do aluno com o ID informado
+# Faltou usar o "WHERE" no "UPDATE", entao o sistema mudou o nome de todos os alunos, e nao so do aluno com o ID informado

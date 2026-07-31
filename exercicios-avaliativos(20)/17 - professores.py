@@ -11,5 +11,4 @@ def inserir_professor(nome, materia, cpf):
     finally: 
         conexao.close() 
 
-# Na linha 7 INSERT está escrito 'INSERTO' deve ser 'INSERT'.
-# O except não captura o erro de sintaxe por que ele é especifico do codigo inteiro, teria que criar um novo except apenas para erro de sintaxe
+# Na linha 7 INSERT está escrito 'INSERTO' deve ser 'INSERT'. E o except não captura o erro de sintaxe por que ele é especifico do codigo inteiro.

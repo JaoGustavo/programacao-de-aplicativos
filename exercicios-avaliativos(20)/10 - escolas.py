@@ -11,10 +11,3 @@ def deletar_escola_antiga():
     conexao.close
 
 # Faltava um "f" e {} para chamar a variavel id_escola e tbm "?" que mostra o que apagar id_escola
-
-
-
-
-
-
-

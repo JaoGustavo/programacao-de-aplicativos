@@ -17,4 +17,4 @@ def buscar_dados_dinamicos(nome_tabela, id_registro):
     
     conexao.close()
 
-# Não pode se usar colunas ou tabelas como parâmetros."
+# Deve se usar '?' como colunas ou tabelas se nao será indentificado como parâmetros."

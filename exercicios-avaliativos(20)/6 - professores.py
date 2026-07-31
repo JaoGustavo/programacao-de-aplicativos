@@ -10,4 +10,3 @@ def buscar_professor(id_prof):
     conexao.close()
 
 # É obrigatorio colocar a virgula dps do elemento. Para interpretar o tupla.
-
