@@ -33,7 +33,7 @@ finally:
 def cadastrar_transportadora():
     try:
         nome_fantasia = input("Nome: ")
-        cnpj = input("CNPJ: ")
+        cnpj = int(input("CNPJ: "))
 
         conexao = sqlite3.connect('transportadora.db')
         cursor = conexao.cursor()
@@ -50,15 +50,19 @@ def cadastrar_transportadora():
 
 def cadastrar_garagem():
     try:        
-        print("Cadastrando garagem.")
-        print("    ")
-
         id_transportadora = int(input("Digite o ID da Transportadora: "))
         cidade = input("Cidade da Garagem: ")
 
         conexao = sqlite3.connect('transportadora.db')
         cursor = conexao.cursor()
+
         cursor.execute("SELECT id FROM transportadoras WHERE id = ?", (id_transportadora,))
+
+        if cursor.fetchone() is None:
+            print("ID de transportadora nao encontrada.")
+            conexao.close()
+            return
+
         cursor.execute("INSERT INTO garagens (cidade, id_transportadora) VALUES (?, ?)", (cidade, id_transportadora))
         conexao.commit()
         print("Garagem cadastrada!")
@@ -113,26 +117,31 @@ def listar_garagens():
 
 
 def atualizar_transportadora():
-    try:        
+    try:
         print("Atualizando nome da transportadora.")
         print("    ")
 
-        conexao = sqlite3.connect('transportadora.db')
-        cursor = conexao.cursor()
-        cursor.execute("SELECT id FROM transportadoras WHERE id = ?", (id_transportadora,))
-
         id_transportadora = int(input("Digite o ID da transportadora que voce ira atualizar: "))
         novo_nome_fantasia = input("Novo Nome: ")
-        novo_cnpj = input("Novo CNPJ: ")
+        novo_cnpj = int(input("Novo CNPJ: "))
+
         if not novo_nome_fantasia or not novo_cnpj:
-            print("Nenhum cmapo pode ser vazio")
+            print("Nenhum campo pode ser vazio")
+            return
+
+        conexao = sqlite3.connect('transportadora.db')
+        cursor = conexao.cursor()
+        cursor.execute("SELECT id FROM transportadoras WHERE id = ?",(id_transportadora,))
+
+        if cursor.fetchone() is None:
+            print("Transportadora nao existe.")
             conexao.close()
             return
+
         cursor.execute("UPDATE transportadoras SET nome_fantasia = ?, cnpj = ? WHERE id = ?", (novo_nome_fantasia, novo_cnpj, id_transportadora))
         conexao.commit()
         print("Transportadora atualizada!")
 
-    
     except ValueError:
         print(" O ID deve ser um numero inteiro.")
     except sqlite3.IntegrityError:
@@ -148,15 +157,21 @@ def atualizar_garagem():
         print("Atualizando nome da garagem.")
         print("    ")
 
-        conexao = sqlite3.connect('transportadora.db')
-        cursor = conexao.cursor()
-        cursor.execute("SELECT id FROM garagens WHERE id = ?", (id_garagem,))
-
         id_garagem = int(input("Digite o ID da garagem que voce ira atualizar: "))
         nova_cidade = input("Nova Cidade: ")
         novo_id_transportadora = int(input("Novo ID da Transportadora vinculada: "))
-        if not nova_cidade:
-            print("Nenhum campo pode ser vazio.")
+        conexao = sqlite3.connect('transportadora.db')
+        cursor = conexao.cursor()
+
+        cursor.execute("SELECT id FROM garagens WHERE id = ?", (id_garagem,))
+        if cursor.fetchone() is None:
+            print("Garagem nao encontrada.")
+            conexao.close()
+            return
+
+        cursor.execute("SELECT id FROM transportadoras WHERE id = ?", (novo_id_transportadora,))
+        if cursor.fetchone() is None:
+            print("Transportadora nao encontrada.")
             conexao.close()
             return
 
