@@ -126,9 +126,8 @@ def executar_testes_prova():
         pass
 
     conexao.close()
-    print("\n==================================================")
-    print("  SUCESSO: Todos os asserts da prova passaram!    ")
-    print("==================================================")
+    print(" SUCESSO:  Todos os asserts da prova passaram!    ")
+
 
 if __name__ == "__main__":
     executar_testes_prova()
