@@ -7,6 +7,7 @@ def tem_senha_valida(senha):
  
  
 
+
 assert buscar_nome([], "Ana") is False
 assert buscar_nome(["Ana", "Bruno", "Carla"], "Bruno") is True
 assert buscar_nome(["João", "Maria", "Pedro"], "Lucas") is False

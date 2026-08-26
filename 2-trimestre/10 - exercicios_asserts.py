@@ -8,6 +8,7 @@ def classificar_temperatura(temperatura):
 
 
 
+
 assert classificar_temperatura(14) == "Frio"
 
 assert classificar_temperatura(15) == "Agradável"
