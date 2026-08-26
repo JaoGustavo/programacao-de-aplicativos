@@ -1,29 +1,7 @@
-def classificar_idade(idade):
-    if idade < 12:
-        return "Criança"
-    elif idade < 18:
-        return "Adulto"
-    else:
-        return "Adulto"
+def calcular_media(nota1, nota2, nota3):
+    media = (nota1 + nota2 + nota3) / 3
+    return media
 
-assert classificar_idade(10) == "Criança"  # - P
-assert classificar_idade(15) == "Adolescente"  # - F
-assert classificar_idade(18) == "Adulto"  # - P
-
-
-
-
-def classificar_idade(idade):
-    if idade < 12:
-        return "Criança"
-    elif idade < 18:
-        return "Adolescente"
-    else:
-        return "Adulto"
-
-
-assert classificar_idade(10) == "Criança"  # - P
-assert classificar_idade(15) == "Adolescente"  # - P
-assert classificar_idade(18) == "Adulto"  # - P
-
-# Estava errado porque a funcao mostrava "Adulto" e devia mostrar  "Adolescente"
+assert calcular_media(7, 8, 9) == 8
+assert calcular_media(10, 10, 10) == 10
+assert calcular_media(5, 6, 7) == 6
