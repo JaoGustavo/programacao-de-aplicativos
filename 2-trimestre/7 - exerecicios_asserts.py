@@ -13,9 +13,6 @@ assert classificar_idade(18) == "Adulto"  # - P
 
 
 
-# Correto
-
-
 def classificar_idade(idade):
     if idade < 12:
         return "Criança"
